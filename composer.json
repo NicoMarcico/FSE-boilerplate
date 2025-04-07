@@ -1,0 +1,26 @@
+{
+    "name": "marcico/fse-boilerplate",
+    "description": "A minimal boilerplate for developing WordPress Full Site Editing themes.",
+    "type": "wordpress-theme",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "NicoMarcico",
+            "email": "dev@marcico.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "phpcs": "vendor/bin/phpcs",
+        "phpcbf": "vendor/bin/phpcbf"
+    }
+}

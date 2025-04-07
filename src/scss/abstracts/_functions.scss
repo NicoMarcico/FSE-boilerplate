@@ -1,0 +1,12 @@
+/// Px to rem conversion
+/// @access public
+/// @param {number} $size - Size in px
+/// @return {number} - Size in rem
+/// @example px-to-rem(16) => 1rem
+@function px-to-rem($size) {
+	@if unit($size) != "px" {
+		@error "La taille doit être en pixels (px).";
+	}
+	$value: $size / 16px;
+	@return #{$value}rem;
+}

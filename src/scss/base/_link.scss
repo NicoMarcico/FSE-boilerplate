@@ -1,0 +1,7 @@
+/// Rules for the link element
+
+@use "../abstracts/mixins" as *;
+
+a:where(:not(.wp-element-button)) {
+	@include transition(color);
+}

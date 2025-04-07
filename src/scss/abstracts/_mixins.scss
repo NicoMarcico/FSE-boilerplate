@@ -1,0 +1,39 @@
+@use "sass:meta";
+@use "sass:map";
+@use "variables" as *;
+
+/// Breakpoints manager
+/// Responsive with mobile-first approach
+/// @access public
+/// @param {string} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin breakpoint($breakpoint) {
+	$raw-query: map.get($breakpoints, $breakpoint);
+
+	@if $raw-query {
+		$query: if(
+			meta.type-of($raw-query) == "string",
+			unquote($raw-query),
+			meta.inspect($raw-query)
+		);
+
+		@media (min-width: #{$query}) {
+			@content;
+		}
+	} @else {
+		@error "No value found for `#{$breakpoint}`. Please check the `$breakpoints` map.";
+	}
+}
+
+/// Adding transition
+/// @access public
+/// @param {string} $property - CSS property to transition
+/// @param {string} $duration - Duration of the transition
+/// @param {string} $timing-function - Timing function for the transition
+@mixin transition(
+	$property: all,
+	$duration: 0.2s,
+	$timing-function: ease-in-out
+) {
+	transition: $property $duration $timing-function;
+}
