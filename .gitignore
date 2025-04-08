@@ -7,4 +7,4 @@ vendor/
 composer.lock
 
 # Ignore build output
-build
+build/
